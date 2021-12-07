@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import Traininglist from './components/Traininglist';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import Calendar from './components/Calendar';
 
 function App() {
 
@@ -26,11 +27,13 @@ function App() {
           <Tabs value={tab} onChange={handleChange} textColor="inherit">
             <Tab label="Customers" value="one" />
             <Tab label="Trainings" value="two" />
+            <Tab label="Calendar" value="three" />
           </Tabs>
         </Toolbar>
       </AppBar>
         {tab === "one" && <Customerlist/>}
         {tab === "two" && <Traininglist />}
+        {tab === "three" && <Calendar />}
     </div>
   );
 }

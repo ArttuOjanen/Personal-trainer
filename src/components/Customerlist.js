@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-material.css';
-import { AgGridReact } from 'ag-grid-react/lib/agGridReact';
+import { AgGridReact, AgGridColumn } from 'ag-grid-react/lib/agGridReact';
 import Snackbar from '@mui/material/Snackbar';
 import Button from '@mui/material/Button';
 import AddCustomer from './AddCustomer';
@@ -13,6 +13,19 @@ function Customerlist() {
     const [customers, setCustomers] = useState([]);
     const [open, setOpen] = React.useState(false);
     const [msg, setMsg] = useState('');
+
+    const [gridApi, setGridApi] = useState();
+    const [gridColumnApi, setGridColumnApi] = useState();
+
+
+    const onGridReady = (params) => {
+        setGridApi(params.api);
+        setGridColumnApi(params.columnApi);
+      };
+
+      const onBtnExport = () => {
+        gridApi.exportDataAsCsv();
+      };
 
     const handleClose = () => {
         setOpen(false);
@@ -118,6 +131,9 @@ function Customerlist() {
     return(
         <div>
             <AddCustomer addCustomer={addCustomer} />
+            <Button variant="outlined" onClick={() => onBtnExport()}>
+            Export file
+          </Button>
         <div className="ag-theme-material" style={{marginTop: 20, height: 600, width: '80%', margin: 'auto'}}>
             <AgGridReact
             rowData={customers}
@@ -125,6 +141,7 @@ function Customerlist() {
             pagination={true}
             paginationPageSize={10}
             suppressCellSelection={true}
+            onGridReady={onGridReady}
             />
         </div>
         <Snackbar 
