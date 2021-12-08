@@ -6,6 +6,7 @@
     "node": "14.x"
   },
   "dependencies": {
+    "@emotion/styled": "^11.6.0",
     "@fullcalendar/daygrid": "^5.10.1",
     "@fullcalendar/react": "^5.10.1",
     "@fullcalendar/timegrid": "^5.10.1",
