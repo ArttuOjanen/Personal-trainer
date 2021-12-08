@@ -22,7 +22,7 @@ function Calendar() {
         return (
           <>
             <b>{params.timeText}</b>
-            <i>{params.event.extendedProps.activity + " " + params.event.extendedProps.customer.firstname + " " + params.event.extendedProps.customer.lastname}</i>
+            <i>{params.event.extendedProps.activity + " " + "with" + " " + params.event.extendedProps.customer.firstname + " " + params.event.extendedProps.customer.lastname}</i>
           </>
         )
       }
