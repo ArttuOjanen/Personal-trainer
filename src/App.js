@@ -8,6 +8,7 @@ import Traininglist from './components/Traininglist';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Calendar from './components/Calendar';
+import Statistics from './components/Statistics';
 
 function App() {
 
@@ -28,12 +29,14 @@ function App() {
             <Tab label="Customers" value="one" />
             <Tab label="Trainings" value="two" />
             <Tab label="Calendar" value="three" />
+            <Tab label="Statistics" value="four" />
           </Tabs>
         </Toolbar>
       </AppBar>
         {tab === "one" && <Customerlist/>}
         {tab === "two" && <Traininglist />}
         {tab === "three" && <Calendar />}
+        {tab === "four" && <Statistics />}
     </div>
   );
 }
